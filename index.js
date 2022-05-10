@@ -16,10 +16,12 @@ let server = http.createServer(function(req,res){
 			res.end(JSON.stringify({code:200}))
 			console.log(2224444)
 			if(event === 'push'){
-				// let payload = JSON.parse(body)
-				console.log(body)
-				console.log(11111,payload.repository.name)
-				const repository_name = payload.repository.name
+				let payload = JSON.parse(body)
+				console.log(payload)
+				console.log(payload.repository)
+				console.log(payload.repository.name)
+				// console.log(11111,payload.repository.name)
+				// const repository_name = payload.repository.name
 				// if(repository_name === "webHooks"){
 				// 	spawn('sh',[`./hooks.sh`]);
 				// }else if(repository_name === "web"){
