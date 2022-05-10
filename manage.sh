@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WORK_PATH='/webTeam/manage'
+WORK_PATH='/root/webTeam/manage/'
 cd $WORK_PATH
 git reset --hard origin/master
 git clean -f

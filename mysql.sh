@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WORK_PATH='/webTeam/manage'
+WORK_PATH='/root/webTeam/manage/'
 cd $WORK_PATH
 docker stop mysql-container
 docker rm mysql-container
