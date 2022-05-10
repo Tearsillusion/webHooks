@@ -17,8 +17,8 @@ let server = http.createServer(function(req,res){
 			res.end(JSON.stringify({code:200}))
 			
 			if(event === 'push'){
-				console.log(22222,body)
-				let payload = JSON.parse(JSON.stringify(body))
+				console.log(22222,body.toString())
+				let payload = JSON.parse(body.toString())
 				console.log(payload)
 				console.log(payload.repository)
 				console.log(payload.repository.name)
