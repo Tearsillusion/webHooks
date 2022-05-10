@@ -5,6 +5,7 @@ let server = http.createServer(function(req,res){
 	if(req.method === 'POST' && req.url === '/hooks'){
 		let buffers = []
 		req.on('data',function(buffer){
+			console.log(1111,buffer)
 			buffers.push(buffer)
 		})
 		req.on('end',function(buffer){
@@ -12,10 +13,11 @@ let server = http.createServer(function(req,res){
 			let event = req.headers['x-github-event'];
 			console.log(event)
 			res.setHeader('Content-Type','application/json');
-			console.log(22223333)
+			
 			res.end(JSON.stringify({code:200}))
-			console.log(2224444)
+			console.log(22222,buffer)
 			if(event === 'push'){
+				
 				let payload = JSON.parse(body)
 				console.log(payload)
 				console.log(payload.repository)
