@@ -8,5 +8,5 @@ git pull origin master
 docker build -t manage-images .
 docker stop manage-container
 docker rm manage-container
-docker run -itd -p 9001:3000 --name manage-container  manage-images
+docker run -itd -p 9001:9001 --name manage-container  manage-images
 
