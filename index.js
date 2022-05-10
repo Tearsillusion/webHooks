@@ -15,10 +15,10 @@ let server = http.createServer(function(req,res){
 			res.setHeader('Content-Type','application/json');
 			
 			res.end(JSON.stringify({code:200}))
-			console.log(22222,buffer)
+			
 			if(event === 'push'){
-				
-				let payload = JSON.parse(body)
+				console.log(22222,body)
+				let payload = JSON.parse(body[0])
 				console.log(payload)
 				console.log(payload.repository)
 				console.log(payload.repository.name)
