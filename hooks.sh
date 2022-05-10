@@ -1,8 +1,8 @@
 #!/bin/bash
 
-git reset --hard origin/webManage
+git reset --hard origin/master
 git clean -f
-git pull origin webManage
+git pull origin master
 docker build -t hooks-images .
 docker stop hooks-container
 docker rm hooks-container
