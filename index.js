@@ -10,8 +10,11 @@ let server = http.createServer(function(req,res){
 		req.on('end',function(buffer){
 			let body = Buffer.concat(buffers)
 			let event = req.headers['x-github-event'];
+			console.log(event)
 			res.setHeader('Content-Type','application/json');
+			console.log(22223333)
 			res.end(JSON.stringify({code:200}))
+			console.log(2224444)
 			if(event === 'push'){
 				let payload = JSON.parse(body)
 				console.log(222222)
