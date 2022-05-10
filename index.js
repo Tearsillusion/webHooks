@@ -2,7 +2,6 @@ let http = require('http')
 let {spawn} = require('child_process')
 
 let server = http.createServer(function(req,res){
-	console.log(111112222,req);
 	if(req.method === 'POST' && req.url === '/hooks'){
 		let buffers = []
 		req.on('data',function(buffer){
@@ -17,8 +16,14 @@ let server = http.createServer(function(req,res){
 				let payload = JSON.parse(body)
 				console.log(payload.repository)
 				console.log(payload.repository.name)
-				let child = spawn('sh',[`./web.sh`]);
-				
+				const repository_name = payload.repository.name
+				if(repository_name === "webHooks"){
+					spawn('sh',[`./hooks.sh`]);
+				}else if(repository_name === "web"){
+					spawn('sh',[`./web.sh`]);
+				}else{
+					spawn('sh',[`./manage.sh`]);
+				}
 			}
 			
 		})
